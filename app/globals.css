@@ -1,3 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root {
+    --font-sans: sans.style.fontFamily;
+    --font-serif: serif.style.fontFamily;
+    --font-mono: mono.style.fontFamily;
+  }
