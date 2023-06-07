@@ -2,14 +2,6 @@ import React from 'react'
 import { Wrapper } from '../Shared/Wrapper'
 import HeroImg from "@/Assets/hero.png"
 import Image from 'next/image'
-import { Lato as Lato } from 'next/font/google'
-
-const lato = Lato({
-    subsets: ['latin'],
-    // this will be the css variable
-    variable: '--font-lato',
-    weight: "100"
-});
 
 const Hero = () => {
     return (

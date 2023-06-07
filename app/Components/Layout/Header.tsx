@@ -19,16 +19,16 @@ const Navbar = () => {
             <Wrapper>
                 <div className='py-5 mx-5 mt-2 md:px-4 lg:px-12  flex justify-between items-center'>
                     <Link href={"/"}>
-                    <h3 className="font-sans font-bold uppercase underline underline-offset-4"> Hekto </h3>
+                    <h3 className="font-sans text-[#30207a] font-bold uppercase underline underline-offset-4"> Hekto </h3>
                     </Link>
-                    <ul className="flex lg:space-x-16 md:space-x-7 space-x-3 mr-10 md:mr-0 font-medium">
+                    <ul className="flex lg:space-x-16 md:space-x-7  space-x-3 mr-10 md:mr-0 font-semibold">
                         <li>
-                            <Link href={"/"}>
+                            <Link href={"/Sofas"}>
                                 Sofa
                             </Link>
                         </li>
                         <li>
-                            <Link href={""}>
+                            <Link href={"/Chairs"}>
                                 Chair
                             </Link>
                         </li>
@@ -38,7 +38,7 @@ const Navbar = () => {
                             </Link>
                         </li>
                         <li>
-                            <Link href={""}>
+                            <Link href={"/AllProducts"}>
                                 All
                             </Link>
                         </li>
