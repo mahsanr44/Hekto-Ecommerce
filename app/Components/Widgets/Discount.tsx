@@ -10,9 +10,9 @@ const Discount = () => {
        <h1 className='text-2xl mt-32 text-[#30207a] font-bold font-serif flex justify-center items-center'>
                     Discount Items
                 </h1>
-                <div className=' lg:p-10 p-5 md:flex lg:space-x-24 md:space-x-14  justify-center items-center lg:mx-12  '>
+                <div className=' lg:p-10 p-5 md:flex lg:space-x-24 md:space-x-14  justify-center items-center lg:mx-20  '>
                         <div className='space-y-4'>
-                            <h1 className='font-extrabold text-4xl font-serif'> Discount Of 39% on All Products</h1>
+                            <h1 className='font-extrabold text-4xl font-serif'> Discount on All Products</h1>
                             <p className='text-[#FB2E86] font-sans font-bold underline'>Eams Sofa Compact </p>
                             <p className='text-[#8A8FB9] font-normal mt-5'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Eu eget feugiat habitasse nec, bibendum condimentum.</p>
                             <ul className='grid grid-cols-2 text-[#8A8FB9] text-sm mt-2 space-y-2 list-disc'>
