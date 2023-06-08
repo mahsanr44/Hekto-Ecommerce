@@ -18,9 +18,9 @@ const NewsLetter = () => {
                         <h2 className='text-2xl text-[#30207a] font-bold font-serif text-center'>Get Leatest Update By Subscribe our Newslater</h2>
                         <button
                             onClick={notify}
-                            className='bg-[#FB2E86] p-2  text-white rounded-sm font-sans px-2 mt-4'>Subscribe Now</button>
-                        
-
+                            className='bg-[#FB2E86] p-2  text-white rounded-sm font-sans px-2 mt-4'>
+                            Subscribe Now
+                        </button>
                     </div>
                 </div>
                 <div>
@@ -28,21 +28,21 @@ const NewsLetter = () => {
                 </div>
             </div>
             <Toaster
-                            position="top-right"
-                            reverseOrder={false}
-                            gutter={4}
-                            containerClassName="absolute top-0"
-                            containerStyle={{}}
-                            toastOptions={{
-                                // Define default options
-                                className: 'slide-toast',
-                                duration: 5000,
-                                style: {
-                                    background: '#363636',
-                                    color: '#fff',
-                                },
-                            }}
-                        />
+                position="top-right"
+                reverseOrder={false}
+                gutter={4}
+                containerClassName="absolute top-0"
+                containerStyle={{}}
+                toastOptions={{
+                    // Define default options
+                    className: 'slide-toast',
+                    duration: 5000,
+                    style: {
+                        background: '#363636',
+                        color: '#fff',
+                    },
+                }}
+            />
         </Wrapper>
     )
 }

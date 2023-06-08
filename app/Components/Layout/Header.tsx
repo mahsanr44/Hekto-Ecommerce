@@ -38,8 +38,8 @@ const Navbar = () => {
                             </Link>
                         </li>
                         <li>
-                            <Link href={"/Cart"}>
-                                Cart
+                            <Link href={"/ProductDetails"}>
+                                Product Details
                             </Link>
                         </li>
                     </ul>
@@ -57,8 +57,10 @@ const Navbar = () => {
                         </div>
                     </div>
                     <div className="bg-gray-200 h-10 w-10 rounded-full relative justify-center items-center flex hover:scale-110 cursor-pointer duration-300 ease-in">
-                        <ShoppingCartIcon />
-                        <span className="bg-red-500 p-2.5 rounded-full h-5 w-5 bottom-7 left-6 text-white absolute justify-center items-center flex">0</span>
+                        <Link href={"/Cart"}>
+                            <ShoppingCartIcon />
+                            <span className="bg-red-500 p-2.5 rounded-full h-5 w-5 bottom-7 left-6 text-white absolute justify-center items-center flex">0</span>
+                        </Link>
                     </div>
                 </div>
 

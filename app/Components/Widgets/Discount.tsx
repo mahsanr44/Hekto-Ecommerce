@@ -2,6 +2,7 @@ import React from 'react'
 import { Wrapper } from '../Shared/Wrapper'
 import DiscountImg from "@/Assets/discount.png"
 import Image from 'next/image'
+import Link from 'next/link'
 
 const Discount = () => {
   return (
@@ -34,7 +35,9 @@ const Discount = () => {
               </div>
             </ul>
             <div>
-              <button className='bg-[#FB2E86] p-2  text-white rounded-sm font-sans px-4'>Shop Now</button>
+              <Link href={"/AllProducts"}>
+                <button className='bg-[#FB2E86] p-2  text-white rounded-sm font-sans px-4'>Shop Now</button>
+              </Link>
             </div>
           </div>
           <div>

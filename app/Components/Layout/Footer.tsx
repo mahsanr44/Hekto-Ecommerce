@@ -6,74 +6,74 @@ import Link from "next/link";
 const Footer = () => {
     return (
         <Wrapper>
-          
-               
-<footer className="bg-[#F2F0FF] dark:bg-gray-900 mt-32">
-    <div className="mx-auto w-full max-w-screen-xl">
-      <div className="grid grid-cols-3 gap-5 px-4 py-6 space-x-16  lg:py-8 md:grid-cols-4">
-      <div>
-      <Link href={"/"}>
-                    <h3 className="font-sans text-[#30207a] font-bold uppercase mb-6"> Hekto </h3>
-                    </Link>         
-                       <div className="flex border mb-6">
-            <input type="text" placeholder="Enter your email " className="px-1" />
-            <button className='bg-[#FB2E86]  text-white rounded-r-sm font-sans p-1 '>Sign Up</button>
 
-            </div>
-            <p className="text-[#8A8FB9]">17 Princess Road, London, Greater London NW1 8JR, UK</p>
-            
-        </div>
-        <div>
-            <h2 className="mb-6 text-sm font-semibold text-[#30207a] uppercase dark:text-white">Company</h2>
-            <ul className="text-[#8A8FB9] dark:text-gray-400 font-medium">
-                <li className="mb-4">
-                    <a href="#" className=" hover:underline">About</a>
-                </li>
-                <li className="mb-4">
-                    <a href="#" className="hover:underline">Careers</a>
-                </li>
-                <li className="mb-4">
-                    <a href="#" className="hover:underline">Brand Center</a>
-                </li>
-                <li className="mb-4">
-                    <a href="#" className="hover:underline">Blog</a>
-                </li>
-            </ul>
-        </div>
-        <div>
-            <h2 className="mb-6 text-sm font-semibold text-[#30207a] uppercase dark:text-white">Help center</h2>
-            <ul className="text-[#8A8FB9] dark:text-gray-400 font-medium">
-                <li className="mb-4">
-                    <a href="#" className="hover:underline">Discord Server</a>
-                </li>
-                <li className="mb-4">
-                    <a href="#" className="hover:underline">Twitter</a>
-                </li>
-                <li className="mb-4">
-                    <a href="#" className="hover:underline">Facebook</a>
-                </li>
-                <li className="mb-4">
-                    <a href="#" className="hover:underline">Contact Us</a>
-                </li>
-            </ul>
-        </div>
-        <div>
-            <h2 className="mb-6 text-sm font-semibold text-[#30207a] uppercase dark:text-white">Legal</h2>
-            <ul className="text-[#8A8FB9] dark:text-gray-400 font-medium">
-                <li className="mb-4">
-                    <a href="#" className="hover:underline">Privacy Policy</a>
-                </li>
-                <li className="mb-4">
-                    <a href="#" className="hover:underline">Licensing</a>
-                </li>
-                <li className="mb-4">
-                    <a href="#" className="hover:underline">Terms &amp; Conditions</a>
-                </li>
-            </ul>
-        </div>
-      
-    </div>
-    {/* <div className="px-4 py-4 bg-[#E7E4F8] dark:bg-gray-700 md:flex md:items-center md:justify-between">
+            <footer className="bg-[#F2F0FF] dark:bg-gray-900 mt-32">
+                <div className="mx-auto w-full max-w-screen-xl">
+                    <div className="grid grid-cols-3 gap-5 px-4 py-6 space-x-16  lg:py-8 md:grid-cols-4">
+                        <div>
+                            <Link href={"/"}>
+                                <h3 className="font-sans text-[#30207a] font-bold uppercase mb-6"> Hekto </h3>
+                            </Link>
+                            <div className="flex border mb-6 h-10 w-12">
+                                <input type="text" placeholder="Enter your email " className="px-1" />
+
+                                <button className='bg-[#FB2E86]  text-white rounded-r-sm font-sans font-semibold text-sm  px-5'>{"Sign Up"}</button>
+
+                            </div>
+                            <p className="text-[#8A8FB9]">17 Princess Road, London, Greater London NW1 8JR, UK</p>
+
+                        </div>
+                        <div>
+                            <h2 className="mb-6 text-sm font-semibold text-[#30207a] uppercase dark:text-white">Company</h2>
+                            <ul className="text-[#8A8FB9] dark:text-gray-400 font-medium">
+                                <li className="mb-4">
+                                    <a href="#" className=" hover:underline">About</a>
+                                </li>
+                                <li className="mb-4">
+                                    <a href="#" className="hover:underline">Careers</a>
+                                </li>
+                                <li className="mb-4">
+                                    <a href="#" className="hover:underline">Brand Center</a>
+                                </li>
+                                <li className="mb-4">
+                                    <a href="#" className="hover:underline">Blog</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h2 className="mb-6 text-sm font-semibold text-[#30207a] uppercase dark:text-white">Help center</h2>
+                            <ul className="text-[#8A8FB9] dark:text-gray-400 font-medium">
+                                <li className="mb-4">
+                                    <a href="#" className="hover:underline">Discord Server</a>
+                                </li>
+                                <li className="mb-4">
+                                    <a href="#" className="hover:underline">Twitter</a>
+                                </li>
+                                <li className="mb-4">
+                                    <a href="#" className="hover:underline">Facebook</a>
+                                </li>
+                                <li className="mb-4">
+                                    <a href="#" className="hover:underline">Contact Us</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h2 className="mb-6 text-sm font-semibold text-[#30207a] uppercase dark:text-white">Legal</h2>
+                            <ul className="text-[#8A8FB9] dark:text-gray-400 font-medium">
+                                <li className="mb-4">
+                                    <a href="#" className="hover:underline">Privacy Policy</a>
+                                </li>
+                                <li className="mb-4">
+                                    <a href="#" className="hover:underline">Licensing</a>
+                                </li>
+                                <li className="mb-4">
+                                    <a href="#" className="hover:underline">Terms &amp; Conditions</a>
+                                </li>
+                            </ul>
+                        </div>
+
+                    </div>
+                    {/* <div className="px-4 py-4 bg-[#E7E4F8] dark:bg-gray-700 md:flex md:items-center md:justify-between">
         <span className="text-sm text-[#30207a] dark:text-gray-300 sm:text-center">© 2023 <a href="https://flowbite.com/">@mahsanr44</a>. All Rights Reserved.
         </span>
         <div className="flex mt-4 space-x-6 sm:justify-center md:mt-0">
@@ -99,15 +99,13 @@ const Footer = () => {
             </a>
         </div>
       </div> */}
-    </div>
-    <div className=" shadow-gray-300 bg-[#E7E4F8]  text-[#30207a] p-2  text-center font-bold">
-    Designed with ❤️ By 
-    <Link href={"https://github.com/mahsanr44"}> Ahsan</Link>
-    
-</div>
-</footer>
+                </div>
+                <div className=" shadow-gray-300 bg-[#E7E4F8]  text-[#30207a] p-2  text-center font-bold">
+                    Designed with ❤️ By
+                    <Link href={"https://github.com/mahsanr44"}> Ahsan</Link>
 
-           
+                </div>
+            </footer>
         </Wrapper>
     );
 };

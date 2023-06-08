@@ -8,9 +8,9 @@ export default function Home() {
     <div>
       <Hero />
       {/* @ts-ignore */}
-      <Featured/>
-      <Discount/>
-      <NewsLetter/>
+      <Featured />
+      <Discount />
+      <NewsLetter />
     </div>
   )
 }
