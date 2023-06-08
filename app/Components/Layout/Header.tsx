@@ -19,33 +19,31 @@ const Navbar = () => {
             <Wrapper>
                 <div className='py-5 mx-5 mt-2 md:px-4 lg:px-12  flex justify-between items-center'>
                     <Link href={"/"}>
-                    <h3 className="font-sans text-[#30207a] font-bold uppercase underline underline-offset-4"> Hekto </h3>
+                        <h3 className="font-sans text-[#30207a] font-bold uppercase underline underline-offset-4"> Hekto </h3>
                     </Link>
                     <ul className="flex lg:space-x-16 md:space-x-7  space-x-3 mr-10 md:mr-0 font-semibold">
                         <li>
+                            <Link href={"/AllProducts"}>
+                                All Products
+                            </Link>
+                        </li>
+                        <li>
                             <Link href={"/Sofas"}>
-                                Sofa
+                                Sofas
                             </Link>
                         </li>
                         <li>
                             <Link href={"/Chairs"}>
-                                Chair
+                                Chairs
                             </Link>
                         </li>
                         <li>
-                            <Link href={""}>
-                                Accessories
-                            </Link>
-                        </li>
-                        <li>
-                            <Link href={"/AllProducts"}>
-                                All
+                            <Link href={"/Cart"}>
+                                Cart
                             </Link>
                         </li>
                     </ul>
-
                     <div className="md:flex items-center border bg-white rounded-md hidden md:visible">
-
                         <input type="search" className=" px-2  text-gray-800 rounded-sm "
                             placeholder="Search" />
                         <div>
@@ -59,7 +57,7 @@ const Navbar = () => {
                         </div>
                     </div>
                     <div className="bg-gray-200 h-10 w-10 rounded-full relative justify-center items-center flex hover:scale-110 cursor-pointer duration-300 ease-in">
-                        <ShoppingCartIcon/>
+                        <ShoppingCartIcon />
                         <span className="bg-red-500 p-2.5 rounded-full h-5 w-5 bottom-7 left-6 text-white absolute justify-center items-center flex">0</span>
                     </div>
                 </div>

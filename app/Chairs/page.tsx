@@ -41,13 +41,11 @@ const Chairs = async () => {
     return (
             <section>
         <Wrapper>
-
-           
-            <div>
-
-                <h1 className='text-2xl mt-14  text-[#1A0B5B] font-bold font-serif flex justify-center items-center'>
+            <div className='bg-[#E7E4F8] py-6  mt-14 flex flex-col justify-center items-center'>
+                <h1 className='text-3xl  text-[#1A0B5B] font-bold font-serif '>
                     All Chairs
                 </h1>
+                <p className='text-[#FB2E86] font-sans font-semibold mt-5'>Best Furniture For Your Castle...</p>
             </div>
             <div className='flex flex-wrap  mt-8 gap-10  mx-32 justify-around items-center text-center '>
                 {
@@ -71,10 +69,6 @@ const Chairs = async () => {
                         )
                     })
                 }
-
-
-
-
             </div>
         </Wrapper>
             </section>

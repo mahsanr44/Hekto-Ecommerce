@@ -17,7 +17,7 @@ const Footer = () => {
                     </Link>         
                        <div className="flex border mb-6">
             <input type="text" placeholder="Enter your email " className="px-1" />
-            <button className='bg-[#FB2E86]  text-white rounded-r-sm font-sans p-1'>Sign Up</button>
+            <button className='bg-[#FB2E86]  text-white rounded-r-sm font-sans p-1 '>Sign Up</button>
 
             </div>
             <p className="text-[#8A8FB9]">17 Princess Road, London, Greater London NW1 8JR, UK</p>
