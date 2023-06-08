@@ -37,7 +37,6 @@ const Sofas = async () => {
 
     const featuredData: IProducts[] = await getFeaturedProducts();
 
-
     return (
         <section>
             <Wrapper>
@@ -61,7 +60,6 @@ const Sofas = async () => {
                                             <span className=' font-semibold text-[#1A0B5B] mt-1'>${item.discount}</span>
                                         </div>
                                         <div className='flex justify-end'>
-
                                             <span className='text-red-500 line-through text-sm font-semibold'>${item.price}</span>
                                         </div>
                                     </div>
