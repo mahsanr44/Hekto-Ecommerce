@@ -3,6 +3,7 @@ import { Wrapper } from '../Shared/Wrapper'
 import HeroImg from "@/Assets/hero.png"
 import Image from 'next/image'
 import Link from 'next/link'
+import Button from '../Shared/Button'
 
 const Hero = () => {
     return (
@@ -18,7 +19,7 @@ const Hero = () => {
                             <p className='text-[#8A8FB9] font-normal '>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Magna in est adipiscing
                                 in phasellus non in justo.</p>
                             <Link href={"/AllProducts"}>
-                                <button className='bg-[#FB2E86] p-2 text-white rounded-sm font-sans px-4'>Shop Now</button>
+                                <Button txt={'Shop Now'} />
                             </Link>
                         </div>
                         <div className='bg-[#ECD2FA] rounded-full p-10 mt-5'>

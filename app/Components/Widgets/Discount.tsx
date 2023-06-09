@@ -3,6 +3,7 @@ import { Wrapper } from '../Shared/Wrapper'
 import DiscountImg from "@/Assets/discount.png"
 import Image from 'next/image'
 import Link from 'next/link'
+import Button from '../Shared/Button'
 
 const Discount = () => {
   return (
@@ -36,7 +37,7 @@ const Discount = () => {
             </ul>
             <div>
               <Link href={"/AllProducts"}>
-                <button className='bg-[#FB2E86] p-2  text-white rounded-sm font-sans px-4'>Shop Now</button>
+                <Button txt={'Shop Now'} />
               </Link>
             </div>
           </div>

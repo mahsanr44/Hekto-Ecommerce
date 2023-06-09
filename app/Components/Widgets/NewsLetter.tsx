@@ -14,16 +14,16 @@ const NewsLetter = () => {
             <div className='flex flex-col justify-center items-center space-y-12 mt-20'>
                 <div className='relative'>
                     <Image src={BgImg} alt='Background' />
-                    <div className=' absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex items-center justify-center flex-col  mr-48'>
-                        <h2 className='text-2xl text-[#30207a] font-bold font-serif text-center'>Get Leatest Update By Subscribe our Newslater</h2>
+                    <div className=' absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex items-center justify-center flex-col  md:mr-48'>
+                        <h2 className='lg:text-2xl text-[#30207a] text-sm font-medium md:font-bold font-serif text-center'>Get Leatest Update By Subscribe our Newslater</h2>
                         <button
                             onClick={notify}
-                            className='bg-[#FB2E86] p-2  text-white rounded-sm font-sans px-2 mt-4'>
+                            className='bg-[#FB2E86] md:p-2   text-white rounded-sm text-xs md:text-base font-mono md:font-sans px-1 py-1 md:px-2 mt-0.5 md:mt-4'>
                             Subscribe Now
                         </button>
                     </div>
                 </div>
-                <div>
+                <div className='cursor-pointer md:hover:scale-105 hover:shadow-sm mt-10 duration-1000'>
                     <Image src={BrandImg} alt='Brands' />
                 </div>
             </div>

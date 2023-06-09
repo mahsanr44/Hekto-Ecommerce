@@ -1,9 +1,9 @@
-import Image from 'next/image'
 import React from 'react'
 import { Image as IImage } from "sanity"
 import { Wrapper } from '@/Components/Shared/Wrapper'
-import { urlForImage } from '../../sanity/lib/image'
 import { client } from '../../sanity/lib/client'
+import ProductCard from '@/Components/Shared/ProductCard'
+import Heading from '@/Components/Shared/Heading'
 
 interface IProducts {
     title: string,
@@ -40,30 +40,19 @@ const Sofas = async () => {
     return (
         <section>
             <Wrapper>
-                <div className='bg-[#E7E4F8] py-6  mt-14 flex flex-col justify-center items-center'>
-                    <h1 className='text-3xl  text-[#1A0B5B] font-bold font-serif '>
-                        All Sofas
-                    </h1>
-                    <p className='text-[#FB2E86] font-sans font-semibold mt-5'>Best Furniture For Your Castle...</p>
-                </div>
-                <div className='flex flex-wrap  mt-8 gap-10  mx-32 justify-around items-center text-center '>
+                <Heading txt={'All Sofas'} />
+                <div className='flex flex-wrap  mt-8 gap-10  mx-5 lg:mx-28 justify-around items-center text-center '>
                     {
                         featuredData.map((item) => {
                             return (
-                                <div key={item._id} className='  rounded-md my-2 max-w-sm hover:scale-110 shadow-md border duration-700 cursor-pointer '>
-                                    <div className='p-2'>
-                                        <Image src={urlForImage(item.image).url()} alt='Hekto Chair' height={150} width={150} />
-                                    </div>
-                                    <div className=' p-2  bg-gray-100 rounded-b-md '>
-                                        <h3 className='text-[#FB2E86] font-semibold '>{item.title}</h3>
-                                        <div className='items-center justify-center flex'>
-                                            <span className=' font-semibold text-[#1A0B5B] mt-1'>${item.discount}</span>
-                                        </div>
-                                        <div className='flex justify-end'>
-                                            <span className='text-red-500 line-through text-sm font-semibold'>${item.price}</span>
-                                        </div>
-                                    </div>
-                                </div>
+                                <ProductCard
+                                key={item._id}
+                                    _id={item._id}
+                                    title={item.title}
+                                    price={item.price}
+                                    discount={item.discount}
+                                    image={item.image}
+                                />
                             )
                         })
                     }

@@ -37,19 +37,15 @@ const Featured = async () => {
 
     const featuredData: IProducts[] = await getFeaturedProducts();
 
-
     return (
         <section>
             <Wrapper>
-
-
                 <div>
-
                     <h1 className='text-2xl mt-20 text-[#30207a] font-bold font-serif flex justify-center items-center'>
                         Featured Products
                     </h1>
                 </div>
-                <div className='flex flex-wrap  mt-8 gap-10  mx-32 justify-around items-center text-center '>
+                <div className='flex flex-wrap  mt-8 gap-10 md:mx-20  lg:mx-32 justify-around items-center text-center '>
                     {
                         featuredData.map((item) => {
                             return (
@@ -71,10 +67,6 @@ const Featured = async () => {
                             )
                         })
                     }
-
-
-
-
                 </div>
             </Wrapper>
         </section>
