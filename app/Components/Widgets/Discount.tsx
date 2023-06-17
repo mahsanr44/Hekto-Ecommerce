@@ -35,7 +35,7 @@ const Discount = () => {
                 <li>Material expose like metals</li>
               </div>
             </ul>
-            <div>
+            <div className='max-w-fit'>
               <Link href={"/AllProducts"}>
                 <Button txt={'Shop Now'} />
               </Link>

@@ -11,6 +11,14 @@ export const products = {
       type: "string",
     },
     {
+      name:"slug",
+      title:"Product slug",
+      type:"slug",
+      options:{
+        source:"name"
+      }
+    },
+    {
       name: "price",
       title: "Product Price",
       type: "number",
@@ -23,7 +31,8 @@ export const products = {
     {
       name: "image",
       title: "Product Image",
-      type: "image",
+      type: "array",
+      of:[{type:"image"}]
     },
     {
       name: "description",

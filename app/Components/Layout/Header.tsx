@@ -15,31 +15,26 @@ const poppin = Poppins({
 
 const Navbar = () => {
     return (
-        <nav>
+        <header className="sticky top-0  bg-white backdrop-blur-md bg-opacity-70 z-10">
             <Wrapper>
-                <div className='py-5 mx-5 mt-2 md:px-2 lg:px-12  flex justify-between items-center'>
+                <div className=' py-7 mx-5 mt-2 md:px-2 lg:px-12  flex justify-between items-center'>
                     <Link href={"/"}>
                         <h3 className="font-sans text-[#30207a] font-bold uppercase underline underline-offset-4"> Hekto </h3>
                     </Link>
                     <ul className="flex lg:space-x-16 md:space-x-7  space-x-3 mr-10 md:mr-0 font-semibold">
                         <li>
-                            <Link href={"/AllProducts"}>
+                            <Link href={"/AllProducts/"}>
                                 All Products
                             </Link>
                         </li>
                         <li>
-                            <Link href={"/Sofas"}>
+                            <Link href={"/category/sofa"}>
                                 Sofas
                             </Link>
                         </li>
                         <li>
-                            <Link href={"/Chairs"}>
+                            <Link href={"/category/chair"}>
                                 Chairs
-                            </Link>
-                        </li>
-                        <li>
-                            <Link href={"/ProductDetails"}>
-                                Product Details
                             </Link>
                         </li>
                     </ul>
@@ -65,7 +60,7 @@ const Navbar = () => {
                 </div>
 
             </Wrapper>
-        </nav>
+        </header>
     )
 }
 

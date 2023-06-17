@@ -19,7 +19,7 @@ const Footer = () => {
                                 <button className='bg-[#FB2E86]  text-white font-sans font-semibold text-sm  px-2 lg:px-5'>{"Submit"}</button>
 
                             </div>
-                            <p className="text-[#8A8FB9]">17 Princess Road, London, Greater London NW1 8JR, UK</p>
+                            <p className="text-[#8A8FB9]"> Murree Road London, The Great Britain NW1 8JR, UK</p>
 
                         </div>
                         <div>

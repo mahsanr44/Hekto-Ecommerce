@@ -14,7 +14,7 @@ import {
 import { Trash2 } from 'lucide-react'
 import toast, { Toaster } from 'react-hot-toast'
 import Heading from '@/Components/Shared/Heading'
-const notify = () => toast.loading('Loading...');
+const notify = () => toast.loading('Proceeding ');
 
 
 const Cart = () => {
@@ -169,7 +169,7 @@ const Cart = () => {
                 toastOptions={{
                     // Define default options
                     className: 'slide-toast',
-                    duration: 3000,
+                    duration: 5000,
                     style: {
                         background: '#363636',
                         color: '#fff',

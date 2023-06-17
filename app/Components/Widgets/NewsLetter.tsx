@@ -15,7 +15,7 @@ const NewsLetter = () => {
                 <div className='relative'>
                     <Image src={BgImg} alt='Background' />
                     <div className=' absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex items-center justify-center flex-col  md:mr-48'>
-                        <h2 className='lg:text-2xl text-[#30207a] text-sm font-medium md:font-bold font-serif text-center'>Get Leatest Update By Subscribe our Newslater</h2>
+                        <h2 className='lg:text-2xl text-[#30207a] text-sm font-medium md:font-bold font-serif text-center'>Get Leatest Update By Subscribe Our Newslater</h2>
                         <button
                             onClick={notify}
                             className='bg-[#FB2E86] md:p-2   text-white rounded-sm text-xs md:text-base font-mono md:font-sans px-1 py-1 md:px-2 mt-0.5 md:mt-4'>

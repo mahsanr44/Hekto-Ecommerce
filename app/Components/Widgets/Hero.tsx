@@ -18,9 +18,11 @@ const Hero = () => {
                             <h1 className='font-extrabold text-4xl font-serif'>New Furniture Collection Trends in 2023</h1>
                             <p className='text-[#8A8FB9] font-normal '>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Magna in est adipiscing
                                 in phasellus non in justo.</p>
-                            <Link href={"/AllProducts"}>
-                                <Button txt={'Shop Now'} />
-                            </Link>
+                            <div className='max-w-fit'>
+                                <Link href={"/AllProducts"}>
+                                    <Button txt={'Shop Now'} />
+                                </Link>
+                            </div>
                         </div>
                         <div className='bg-[#ECD2FA] rounded-full p-10 mt-5'>
                             <Image src={HeroImg} alt={'Hero '} width={450} height={450} />
