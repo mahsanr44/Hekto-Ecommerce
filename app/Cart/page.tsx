@@ -1,8 +1,6 @@
-"use client"
 import { Wrapper } from '@/Components/Shared/Wrapper'
 import Image from 'next/image'
 import React from 'react'
-import HeroImg from "./../Assets/hero.png"
 import {
     Table,
     TableBody,
@@ -12,12 +10,41 @@ import {
     TableRow,
 } from "../../components/ui/table"
 import { Trash2 } from 'lucide-react'
-import toast, { Toaster } from 'react-hot-toast'
+import { Toaster } from 'react-hot-toast'
 import Heading from '@/Components/Shared/Heading'
-const notify = () => toast.loading('Proceeding ');
+import { CartTypes } from '../../sanity/lib/drizzle'
+import StripeButton from './StripeButton'
+import { cookies } from 'next/headers'
 
 
-const Cart = () => {
+const getData = async () => {
+
+    try {
+
+        const res = await fetch('http://127.0.0.1:3000/api/cart', {
+            method: 'GET',
+            cache: "no-store",
+            headers: { 'Content-Type': 'application/json' }
+        })
+        if (!res.ok) {
+            throw new Error(`Error fetching data`)
+        }
+        const cartData = await res.json();
+
+        
+        console.log(cartData)
+        return cartData
+
+    } catch (error) {
+        console.log(error)
+    }
+}
+
+const Cart = async () => {
+    const user_id = cookies().get("user_id")?.value as string;
+    const res: { data: CartTypes[] } = await getData();
+    const uid= res.data.find((uid)=>uid.user_id===user_id)
+
     return (
         <Wrapper>
             <Heading txt={'Shopping Cart'} />
@@ -25,8 +52,8 @@ const Cart = () => {
                 <div>
                     <Table >
                         <TableHeader >
-                            <TableRow className='bg-gray-100'>
-                                <TableHead className='w-fit px-8' ><h4 className='font-bold text-[#30207a] text-lg'>Name</h4></TableHead>
+                            <TableRow className='bg-[#E7E4F8] '>
+                                <TableHead className='w-fit px-8' ><h4 className='font-bold text-[#30207a] text-lg'>Product Name</h4></TableHead>
                                 <TableHead className='text-center px-8'><h4 className='font-bold text-[#30207a] text-lg'>Qunatity</h4></TableHead>
                                 <TableHead className='text-center px-8'><h4 className='font-bold text-[#30207a] text-lg'>Price</h4></TableHead>
                                 <TableHead className='text-center px-8'><h4 className='font-bold text-[#30207a] text-lg'>Total Price</h4></TableHead>
@@ -34,102 +61,46 @@ const Cart = () => {
 
                             </TableRow>
                         </TableHeader>
-                        <TableBody className='bg-[#F4F4FC] '>
-                            <TableRow >
-                                <TableCell className='flex items-center w-fit'>
-                                    <Image src={HeroImg} alt='Hero' height={50} width={50} />
-                                    <div >
-                                        <h4 className='font-bold text-[#30207a]'>Pakistani Sofa</h4>
-                                        <span className='uppercase font-semibold text-gray-400'>Sofa</span>
-                                    </div>
-                                </TableCell>
-                                <TableCell className='text-center '>
-                                    <span >2</span>
-                                </TableCell>
-                                <TableCell className='text-center'>
-                                    <span >$100</span>
-                                </TableCell>
-                                <TableCell className='text-center'>
-                                    <span >$200</span>
-                                </TableCell>
-                                <TableCell className='text-center pl-12 text-red-500'>
-                                    <Trash2 className='cursor-pointer' />
-                                </TableCell>
-                            </TableRow >
-
-                            <TableRow >
-                                <TableCell className='flex items-center   w-fit'>
-                                    <Image src={HeroImg} alt='Hero' height={50} width={50} />
-                                    <div className=''>
-                                        <h4 className='font-bold text-[#30207a]'>Pakistani Sofa</h4>
-                                        <span className='uppercase font-semibold text-gray-400'>Sofa</span>
-                                    </div>
-                                </TableCell>
-                                <TableCell className='text-center w-fit '>
-                                    <span >2</span>
-                                </TableCell>
-                                <TableCell className='text-center'>
-                                    <span >$100</span>
-                                </TableCell>
-                                <TableCell className='text-center'>
-                                    <span >$200</span>
-                                </TableCell>
-                                <TableCell className='text-center pl-12 text-red-500'>
-                                    <Trash2 className='cursor-pointer' />
-                                </TableCell>
-                            </TableRow >
-
-                            <TableRow >
-                                <TableCell className='flex items-center w-fit'>
-                                    <Image src={HeroImg} alt='Hero' height={50} width={50} />
-                                    <div className=''>
-                                        <h4 className='font-bold text-[#30207a]'>Pakistani Sofa</h4>
-                                        <span className='uppercase font-semibold text-gray-400'>Sofa</span>
-                                    </div>
-                                </TableCell>
-                                <TableCell className='text-center'>
-                                    <span >2</span>
-                                </TableCell>
-                                <TableCell className='text-center'>
-                                    <span >$100</span>
-                                </TableCell>
-                                <TableCell className='text-center'>
-                                    <span >$200</span>
-                                </TableCell>
-                                <TableCell className='text-center pl-12 text-red-500'>
-                                    <Trash2 className='cursor-pointer' />
-                                </TableCell>
-                            </TableRow >
-
-                            <TableRow >
-                                <TableCell className='flex items-center w-fit'>
-                                    <Image src={HeroImg} alt='Hero' height={50} width={50} />
-                                    <div className=''>
-                                        <h4 className='font-bold text-[#30207a]'>Pakistani Sofa</h4>
-                                        <span className='uppercase font-semibold text-gray-400'>Sofa</span>
-                                    </div>
-                                </TableCell>
-                                <TableCell className='text-center'>
-                                    <span >2</span>
-                                </TableCell>
-                                <TableCell className='text-center'>
-                                    <span >$100</span>
-                                </TableCell>
-                                <TableCell className='text-center'>
-                                    <span >$200</span>
-                                </TableCell>
-                                <TableCell className='text-center pl-12 text-red-500'>
-                                    <Trash2 className='cursor-pointer' />
-                                </TableCell>
-                            </TableRow >
-                        </TableBody>
+                        {
+                            res?.data.length > 0 ? res?.data.map((item) => {
+                                return (
+                                    <>
+                                        <TableBody className='bg-[#F4F4FC] '>
+                                            <TableRow >
+                                                <TableCell className='flex items-center w-fit'>
+                                                    <Image src={item.image} alt={item.name} height={50} width={50} />
+                                                    <div >
+                                                        <h4 className='font-bold text-[#30207a]'>{item.name}</h4>
+                                                        <span className='uppercase font-semibold text-gray-400'>{item.category}</span>
+                                                    </div>
+                                                </TableCell>
+                                                <TableCell className='text-center '>
+                                                    <span >{item.quantity}</span>
+                                                </TableCell>
+                                                <TableCell className='text-center'>
+                                                    <span >${item.price}</span>
+                                                </TableCell>
+                                                <TableCell className='text-center'>
+                                                    <span >${item.total}</span>
+                                                </TableCell>
+                                                <TableCell className='text-center pl-12 text-red-500'>
+                                                    <div className='hover:bg-[#E7E4F8]  rounded-full w-fit p-2.5'>
+                                                        <Trash2 className='cursor-pointer  ' />
+                                                    </div>
+                                                </TableCell>
+                                            </TableRow >
+                                        </TableBody>
+                                    </>
+                                )
+                            }) : <p className='flex items-center justify-center w-fit font-extrabold text-2xl'>Your Cart is Emply!</p>
+                        }
                     </Table>
                 </div>
                 <div className=' m-4 lg:m-0 lg:mt-0 mt-8 md:mx-10'>
                     <Table >
                         <TableHeader >
-                            <TableRow className='bg-gray-100'>
-                                <TableHead className='w-fit px-12' ><h4 className='font-bold text-[#30207a] text-center text-lg'> Cart Totals</h4></TableHead>
+                            <TableRow className='bg-[#E7E4F8] '>
+                                <TableHead className='w-fit px-12' ><h4 className='font-bold text-[#30207a] text-center text-lg'> Cart Total</h4></TableHead>
                             </TableRow>
                         </TableHeader>
                     </Table>
@@ -152,11 +123,9 @@ const Cart = () => {
                             </svg>
                             <span className='text-sm'>Shipping & taxes calculated at checkout</span>
                         </div>
-                        <div className='flex items-center justify-center '>
-                            <button
-                                onClick={notify}
-                                className='bg-green-400 rounded-sm p-2 w-full text-white'>Proceed To Checkout</button>
-                        </div>
+
+                        <StripeButton />
+
                     </div>
                 </div>
             </div>

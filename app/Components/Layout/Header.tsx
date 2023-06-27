@@ -1,17 +1,7 @@
 import Link from "next/link";
 import { Wrapper } from "../Shared/Wrapper"
-import {
-    Poppins as Poppins,
-
-} from '@next/font/google';
 import { ShoppingCartIcon } from "lucide-react";
 
-const poppin = Poppins({
-    subsets: ['latin'],
-    // this will be the css variable
-    variable: '--font-poppins',
-    weight: "100"
-});
 
 const Navbar = () => {
     return (
@@ -52,7 +42,7 @@ const Navbar = () => {
                         </div>
                     </div>
                     <div className="bg-gray-200 h-10 w-10 rounded-full relative justify-center items-center md:flex hover:scale-110 cursor-pointer duration-300 ease-in hidden md:visible">
-                        <Link href={"/Cart"}>
+                        <Link href={"/cart"}>
                             <ShoppingCartIcon />
                             <span className="bg-red-500 p-2.5 rounded-full h-5 w-5 bottom-7 left-6 text-white absolute justify-center items-center flex">0</span>
                         </Link>
