@@ -3,6 +3,7 @@ import { Wrapper } from "../Shared/Wrapper"
 import { ShoppingCartIcon } from "lucide-react";
 import { getData } from "@/cart/page";
 import { CartTypes } from "../../../sanity/lib/drizzle";
+import DynamicMenu from "./DynamicMenu";
 
 const Navbar = async () => {
     const res: { data: CartTypes[] } = await getData();
@@ -15,22 +16,8 @@ const Navbar = async () => {
                     <Link href={"/"}>
                         <h3 className="font-sans text-[#30207a] font-bold uppercase underline underline-offset-4"> Hekto </h3>
                     </Link>
-                    <ul className="flex lg:space-x-16 md:space-x-7  space-x-3 mr-10 md:mr-0 font-semibold">
-                        <li>
-                            <Link href={"/AllProducts/"}>
-                                All Products
-                            </Link>
-                        </li>
-                        <li>
-                            <Link href={"/category/sofa"}>
-                                Sofas
-                            </Link>
-                        </li>
-                        <li>
-                            <Link href={"/category/chair"}>
-                                Chairs
-                            </Link>
-                        </li>
+                    <ul className="flex lg:space-x-16 md:space-x-7   mr-10 md:mr-0 font-semibold">
+                       <DynamicMenu/>
                     </ul>
                     <div className="md:flex items-center border bg-white rounded-md hidden md:visible">
                         <input type="search" className=" p-1  text-gray-800 rounded-sm "
@@ -45,7 +32,7 @@ const Navbar = async () => {
                             </button>
                         </div>
                     </div>
-                    <div className="bg-gray-200 h-10 w-10 rounded-full relative justify-center items-center md:flex hover:scale-110 cursor-pointer duration-300 ease-in hidden md:visible">
+                    <div className="mr-12 md:mr-0 bg-gray-200 h-10 w-10 rounded-full relative justify-center items-center flex hover:scale-110 cursor-pointer duration-300 ease-in ">
                         {
                             res?.data.map((item) => {
                                 const strQuantity = item.quantity
@@ -58,7 +45,7 @@ const Navbar = async () => {
                             })
                         }
                         <Link href={"/cart"}>
-                            <ShoppingCartIcon />
+                            <ShoppingCartIcon/>
                             <span className="bg-red-500 p-2.5 rounded-full h-5 w-5 bottom-7 left-6 text-white absolute justify-center items-center flex">
                                 {totalQuantity}
                             </span>
