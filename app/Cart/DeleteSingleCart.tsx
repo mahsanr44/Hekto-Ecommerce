@@ -1,8 +1,7 @@
 'use client'
-
 import { useRouter } from "next/navigation";
 import { Trash2 } from 'lucide-react'
-import { TableCell } from "../../components/ui/table"
+import toast from "react-hot-toast";
 const DeleteSingleCart = ({ id }: { id: number }) => {
     const { refresh } = useRouter();
 
@@ -12,6 +11,7 @@ const DeleteSingleCart = ({ id }: { id: number }) => {
             method: "DELETE",
         }
         )
+        toast.success('Product Deleted from the Cart');
         refresh();
     }
     return (

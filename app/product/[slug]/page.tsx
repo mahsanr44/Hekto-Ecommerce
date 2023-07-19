@@ -83,7 +83,7 @@ const ProductDetails = async ({ params }: { params: { slug: string } }) => {
                 containerStyle={{}}
                 toastOptions={{
                     className: 'slide-toast',
-                    duration: 5000,
+                    duration: 2000,
                     style: {
                         background: '#363636',
                         color: '#fff',

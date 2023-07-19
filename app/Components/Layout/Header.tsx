@@ -1,9 +1,13 @@
 import Link from "next/link";
 import { Wrapper } from "../Shared/Wrapper"
 import { ShoppingCartIcon } from "lucide-react";
+import { getData } from "@/cart/page";
+import { CartTypes } from "../../../sanity/lib/drizzle";
 
+const Navbar = async () => {
+    const res: { data: CartTypes[] } = await getData();
 
-const Navbar = () => {
+    let totalQuantity = 0;
     return (
         <header className="sticky top-0  bg-white backdrop-blur-md bg-opacity-70 z-10">
             <Wrapper>
@@ -42,9 +46,22 @@ const Navbar = () => {
                         </div>
                     </div>
                     <div className="bg-gray-200 h-10 w-10 rounded-full relative justify-center items-center md:flex hover:scale-110 cursor-pointer duration-300 ease-in hidden md:visible">
+                        {
+                            res?.data.map((item) => {
+                                const strQuantity = item.quantity
+
+                                const itemQuantity = parseInt(strQuantity);
+
+                                totalQuantity += itemQuantity;
+
+                                return null
+                            })
+                        }
                         <Link href={"/cart"}>
                             <ShoppingCartIcon />
-                            <span className="bg-red-500 p-2.5 rounded-full h-5 w-5 bottom-7 left-6 text-white absolute justify-center items-center flex">0</span>
+                            <span className="bg-red-500 p-2.5 rounded-full h-5 w-5 bottom-7 left-6 text-white absolute justify-center items-center flex">
+                                {totalQuantity}
+                            </span>
                         </Link>
                     </div>
                 </div>

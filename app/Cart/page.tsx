@@ -17,7 +17,7 @@ import StripeCheckout from '@/cart/StripeCheckout'
 import DeleteSingleCart from './DeleteSingleCart'
 
 
- const getData = async () => {
+export const getData = async () => {
 
     try {
 
@@ -105,20 +105,20 @@ const Cart = async () => {
                     </Table>
 
                     <div className='bg-[#F4F4FC] rounded-sm p-10 '>
-                    {
-                               res?.data.map((item) => {
+                        {
+                            res?.data.map((item) => {
                                 const strQuantity = item.quantity
                                 const strPrice = item.price
 
                                 const itemQuantity = parseInt(strQuantity);
                                 const itemPrice = parseInt(strPrice);
 
-                                totalQuantity += itemQuantity; 
-                                totalPrice += itemPrice; 
+                                totalQuantity += itemQuantity;
+                                totalPrice += itemPrice;
 
                                 return null
-                                })
-                            }
+                            })
+                        }
                         <div className='flex space-x-16 md:space-x-[450px] lg:space-x-32 text-[#1A0B5B] font-sans font-semibold'>
                             <h3>Total Price:</h3>
                             <h3>${totalPrice}</h3>
@@ -136,15 +136,9 @@ const Cart = async () => {
                             </svg>
                             <span className='text-sm'>Shipping & taxes calculated at checkout</span>
                         </div>
-                       
-
                         {
-                        
-                                    <>
-                        <StripeCheckout price={res?.data[0].price} />
-                                    </>
-                               
-}
+                                <StripeCheckout price={res?.data[0].price} />
+                        }
 
                     </div>
                 </div>
@@ -158,7 +152,7 @@ const Cart = async () => {
                 toastOptions={{
                     // Define default options
                     className: 'slide-toast',
-                    duration: 7000,
+                    duration: 5000,
                     style: {
                         background: '#363636',
                         color: '#fff',

@@ -2,9 +2,7 @@
 import { useRouter } from "next/navigation";
 import { getStripePrmoise } from "../../lib/stripe"
 import toast from 'react-hot-toast'
-import { CartTypes } from "../../sanity/lib/drizzle";
 import { FC } from "react";
-const notify = () => toast.loading('Proceeding to Checkout');
 
 const product = [{
     product: 1,
@@ -13,11 +11,11 @@ const product = [{
     quantity: 3
 }]
 interface IProducts {
-    
+
     price: string,
 }
 
-const StripeCheckout:FC<IProducts> = async ({ price}) => {
+const StripeCheckout: FC<IProducts> = async ({ price }) => {
     const { refresh } = useRouter();
 
     const handleDeleteAll = async () => {
@@ -34,8 +32,8 @@ const StripeCheckout:FC<IProducts> = async ({ price}) => {
             method: 'POST',
             cache: "no-cache",
             headers: { "Content-Type": "application/json" },
-            body:JSON.stringify({product})
-            
+            body: JSON.stringify({ product })
+
         })
         const data = await res.json();
         console.log(data)
@@ -43,6 +41,7 @@ const StripeCheckout:FC<IProducts> = async ({ price}) => {
 
             stripe?.redirectToCheckout({ sessionId: data.session.id })
         }
+        toast.loading('Proceeding to Checkout');
     }
     return (
         <div className='flex items-center justify-center '>

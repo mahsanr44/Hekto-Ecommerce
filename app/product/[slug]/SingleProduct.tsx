@@ -6,6 +6,7 @@ import toast, { Toaster } from 'react-hot-toast'
 import { Button } from '../../../components/ui/button'
 import { Image as IImage } from "sanity"
 import { urlForImage } from '../../../sanity/lib/image'
+import { useRouter } from 'next/navigation'
 
 interface IProducts {
     slug: string
@@ -41,6 +42,7 @@ const SingleProduct: FC<IProducts> = ({ title, price, image, _id, category, desc
 
     }
 
+    const { refresh } = useRouter();
 
     const handleAddtoCart = async () => {
         if (quantity <= 0) {
@@ -62,6 +64,7 @@ const SingleProduct: FC<IProducts> = ({ title, price, image, _id, category, desc
             })
         const result = await res.json()
         toast.success('Product Added to Cart');
+        refresh();
     }
 
     return (
@@ -134,7 +137,7 @@ const SingleProduct: FC<IProducts> = ({ title, price, image, _id, category, desc
                 containerStyle={{}}
                 toastOptions={{
                     className: 'slide-toast',
-                    duration: 5000,
+                    duration: 2000,
                     style: {
                         background: '#363636',
                         color: '#fff',
