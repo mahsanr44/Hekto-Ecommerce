@@ -9,15 +9,15 @@ import {
     TableHeader,
     TableRow,
 } from "../../components/ui/table"
-import { Trash2 } from 'lucide-react'
 import { Toaster } from 'react-hot-toast'
 import Heading from '@/Components/Shared/Heading'
 import { CartTypes } from '../../sanity/lib/drizzle'
-import StripeButton from './StripeButton'
 import { cookies } from 'next/headers'
+import StripeCheckout from '@/cart/StripeCheckout'
+import DeleteSingleCart from './DeleteSingleCart'
 
 
-const getData = async () => {
+ const getData = async () => {
 
     try {
 
@@ -31,8 +31,6 @@ const getData = async () => {
         }
         const cartData = await res.json();
 
-        
-        console.log(cartData)
         return cartData
 
     } catch (error) {
@@ -40,11 +38,14 @@ const getData = async () => {
     }
 }
 
+
 const Cart = async () => {
     const user_id = cookies().get("user_id")?.value as string;
     const res: { data: CartTypes[] } = await getData();
-    const uid= res.data.find((uid)=>uid.user_id===user_id)
+    const uid = res.data.find((uid) => uid.user_id === user_id)
 
+    let totalQuantity = 0;
+    let totalPrice = 0;
     return (
         <Wrapper>
             <Heading txt={'Shopping Cart'} />
@@ -62,7 +63,7 @@ const Cart = async () => {
                             </TableRow>
                         </TableHeader>
                         {
-                            res?.data.length > 0 ? res?.data.map((item) => {
+                            res && res?.data.length > 0 ? res?.data.map((item) => {
                                 return (
                                     <>
                                         <TableBody className='bg-[#F4F4FC] '>
@@ -84,9 +85,7 @@ const Cart = async () => {
                                                     <span >${item.total}</span>
                                                 </TableCell>
                                                 <TableCell className='text-center pl-12 text-red-500'>
-                                                    <div className='hover:bg-[#E7E4F8]  rounded-full w-fit p-2.5'>
-                                                        <Trash2 className='cursor-pointer  ' />
-                                                    </div>
+                                                    <DeleteSingleCart id={item.id} />
                                                 </TableCell>
                                             </TableRow >
                                         </TableBody>
@@ -106,14 +105,28 @@ const Cart = async () => {
                     </Table>
 
                     <div className='bg-[#F4F4FC] rounded-sm p-10 '>
+                    {
+                               res?.data.map((item) => {
+                                const strQuantity = item.quantity
+                                const strPrice = item.price
+
+                                const itemQuantity = parseInt(strQuantity);
+                                const itemPrice = parseInt(strPrice);
+
+                                totalQuantity += itemQuantity; 
+                                totalPrice += itemPrice; 
+
+                                return null
+                                })
+                            }
                         <div className='flex space-x-16 md:space-x-[450px] lg:space-x-32 text-[#1A0B5B] font-sans font-semibold'>
-                            <h3>Subtotals:</h3>
-                            <h3>$100</h3>
+                            <h3>Total Price:</h3>
+                            <h3>${totalPrice}</h3>
                         </div>
                         <hr className="h-0.5 mt-3 mb-9 bg-[#E8E6F1]" />
-                        <div className='flex space-x-[89px] md:space-x-[475px] lg:space-x-[155px] text-[#1A0B5B] font-sans font-semibold'>
-                            <h3>Totals:</h3>
-                            <h3>$100</h3>
+                        <div className='flex space-x-[89px] md:space-x-[475px] lg:space-x-[140px] text-[#1A0B5B] font-sans font-semibold'>
+                            <h3>Total Carts:</h3>
+                            <h3>{totalQuantity} </h3>
                         </div>
                         <hr className="h-0.5 mt-3 mb-14 bg-[#E8E6F1]" />
                         <div className='flex items-center space-x-2 mb-6'>
@@ -123,8 +136,15 @@ const Cart = async () => {
                             </svg>
                             <span className='text-sm'>Shipping & taxes calculated at checkout</span>
                         </div>
+                       
 
-                        <StripeButton />
+                        {
+                        
+                                    <>
+                        <StripeCheckout price={res?.data[0].price} />
+                                    </>
+                               
+}
 
                     </div>
                 </div>
@@ -138,7 +158,7 @@ const Cart = async () => {
                 toastOptions={{
                     // Define default options
                     className: 'slide-toast',
-                    duration: 5000,
+                    duration: 7000,
                     style: {
                         background: '#363636',
                         color: '#fff',

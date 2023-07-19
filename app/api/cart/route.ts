@@ -67,3 +67,15 @@ export const POST = async (request: NextRequest) => {
     return NextResponse.json({ error: error });
   }
 };
+
+export const DELETE= async (req: NextRequest)=>{
+  try {
+    const res= await db.delete(cartTable).execute();
+    return NextResponse.json({
+      success: "All records deleted successfully",
+  data:res
+    })
+  } catch (error) {
+    console.log(error)
+  }
+}
