@@ -10,8 +10,8 @@ const Navbar = async () => {
     
     const user_id = cookies().get("user_id")?.value as string;
     const res: { data: CartTypes[] } = await getData();
-    const uid = res.data.find((uid) => uid.user_id === user_id)
-
+    const uid = res.data.filter((uid) => uid.user_id===user_id)
+    
     let totalQuantity = 0;
     return (
         <header className="sticky top-0  bg-white backdrop-blur-md bg-opacity-70 z-10">
@@ -38,7 +38,7 @@ const Navbar = async () => {
                     </div>
                     <div className="mr-12 md:mr-0 bg-gray-200 h-10 w-10 rounded-full relative justify-center items-center flex hover:scale-110 cursor-pointer duration-300 ease-in ">
                         {
-                           uid && res &&   res?.data.map((item) => {
+                          uid.map((item) => {
                                 const strQuantity = item.quantity
 
                                 const itemQuantity = parseInt(strQuantity);

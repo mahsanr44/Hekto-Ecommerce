@@ -42,8 +42,8 @@ export const getData = async () => {
 const Cart = async () => {
     const user_id = cookies().get("user_id")?.value as string;
     const res: { data: CartTypes[] } = await getData();
-    const uid = res.data.find((uid) => uid.user_id === user_id)
-
+    const uid = res.data.filter((uid) => uid.user_id===user_id)
+    
     let totalQuantity = 0;
     let totalPrice = 0;
     return (
@@ -63,7 +63,7 @@ const Cart = async () => {
                             </TableRow>
                         </TableHeader>
                         {
-                          uid &&  res && res?.data.length > 0 ? res?.data.map((item) => {
+                          uid.length > 0 ? uid.map((item) => {
                                 return (
                                     <>
                                         <TableBody className='bg-[#F4F4FC] '>
@@ -106,7 +106,7 @@ const Cart = async () => {
 
                     <div className='bg-[#F4F4FC] rounded-sm p-10 '>
                         {
-                          uid && res &&  res?.data.map((item) => {
+                          uid.map((item) => {
                                 const strQuantity = item.quantity
                                 const strPrice = item.total
 
