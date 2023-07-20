@@ -4,9 +4,13 @@ import { ShoppingCartIcon } from "lucide-react";
 import { getData } from "@/cart/page";
 import { CartTypes } from "../../../sanity/lib/drizzle";
 import DynamicMenu from "./DynamicMenu";
+import { cookies } from "next/headers";
 
 const Navbar = async () => {
+    
+    const user_id = cookies().get("user_id")?.value as string;
     const res: { data: CartTypes[] } = await getData();
+    const uid = res.data.find((uid) => uid.user_id === user_id)
 
     let totalQuantity = 0;
     return (
@@ -34,7 +38,7 @@ const Navbar = async () => {
                     </div>
                     <div className="mr-12 md:mr-0 bg-gray-200 h-10 w-10 rounded-full relative justify-center items-center flex hover:scale-110 cursor-pointer duration-300 ease-in ">
                         {
-                            res?.data.map((item) => {
+                           uid && res &&   res?.data.map((item) => {
                                 const strQuantity = item.quantity
 
                                 const itemQuantity = parseInt(strQuantity);

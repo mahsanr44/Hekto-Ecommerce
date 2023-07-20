@@ -63,7 +63,7 @@ const Cart = async () => {
                             </TableRow>
                         </TableHeader>
                         {
-                            res && res?.data.length > 0 ? res?.data.map((item) => {
+                          uid &&  res && res?.data.length > 0 ? res?.data.map((item) => {
                                 return (
                                     <>
                                         <TableBody className='bg-[#F4F4FC] '>
@@ -106,16 +106,15 @@ const Cart = async () => {
 
                     <div className='bg-[#F4F4FC] rounded-sm p-10 '>
                         {
-                            res?.data.map((item) => {
+                          uid && res &&  res?.data.map((item) => {
                                 const strQuantity = item.quantity
-                                const strPrice = item.price
+                                const strPrice = item.total
 
                                 const itemQuantity = parseInt(strQuantity);
                                 const itemPrice = parseInt(strPrice);
 
                                 totalQuantity += itemQuantity;
                                 totalPrice += itemPrice;
-
                                 return null
                             })
                         }

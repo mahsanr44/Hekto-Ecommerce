@@ -1,8 +1,7 @@
 'use client'
 import Link from 'next/link';
 import React, { useState } from 'react'
-import { Wrapper } from '../Shared/Wrapper';
-import { AlignJustify, Menu, MoreVertical } from 'lucide-react';
+import { AlignJustify } from 'lucide-react';
 
 const DynamicMenu = () => {
     let allLinks =[
@@ -18,7 +17,7 @@ const DynamicMenu = () => {
       <AlignJustify name={open ? 'close':'menu'}></AlignJustify>
       </div>
 
-      <ul className={` lg:space-x-16 md:space-x-7  bg-white  md:mr-0  md:flex md:items-center md:pb-0 pb-12 absolute md:static  md:z-auto z-[-1] left-0 w-full md:w-auto md:pl-0 pl-9 transition-all duration-500 ease-in ${open ? 'top-20 ':'top-[-490px]'}`}>
+      <ul className={` lg:space-x-16 md:space-x-7  bg-white md:bg-transparent  md:mr-0  md:flex md:items-center md:pb-0 pb-12 absolute md:static  md:z-auto z-[-1] left-0 w-full md:w-auto md:pl-0 pl-9 transition-all duration-500 ease-in ${open ? 'top-20 ':'top-[-490px]'}`}>
 
         {
           allLinks.map((item)=>(
