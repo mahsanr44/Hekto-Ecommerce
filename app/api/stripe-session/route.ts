@@ -7,28 +7,29 @@ const stripe = new Stripe(key, {
 });
 
 export const POST = async (request: NextRequest) => {
-  const req = await request.json();
-  console.log(req.length); 
+  const req  = await request.json()
+  console.log(req); 
 
   try {
-    if (req.length > 0) {
+    if (req) {
       const session = await stripe.checkout.sessions.create({
         submit_type: "pay",
         mode: "payment",
         payment_method_types:["card"],
         billing_address_collection:"auto",
-        line_items:req.map((item:any)=>{
-            return {
-                price_data:{
-                    currency:'usd',
-                    product_data:{
-                        name:item.name
-                    },
-                    unit_amount:item.price*100,
-                  },
-                    quantity:item.quantity,                
-            }
-        }),
+        line_items: [
+          {
+              price_data: {
+                currency: 'usd',
+                product_data: {
+                  name: req.name,
+                  
+              },
+                  unit_amount: req.price*100,
+              },
+              quantity: req.quantity
+          },
+      ],
         success_url: `${request.headers.get("origin")}/cart`,
         cancel_url: `${request.headers.get("origin")}/cart`,
       });

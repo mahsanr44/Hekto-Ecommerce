@@ -20,8 +20,9 @@ import DeleteSingleCart from './DeleteSingleCart'
 export const getData = async () => {
 
     try {
-
-        const res = await fetch('https://hekto-ecommerce-eight.vercel.app/api/cart', {
+        const LOCAL_URL='http://localhost:3000/api/cart'
+        const DEPLOYED_URL='https://hekto-ecommerce-eight.vercel.app/api/cart'
+        const res = await fetch(DEPLOYED_URL, {
             method: 'GET',
             cache: "no-store",
             headers: { 'Content-Type': 'application/json' }
@@ -42,8 +43,8 @@ export const getData = async () => {
 const Cart = async () => {
     const user_id = cookies().get("user_id")?.value as string;
     const res: { data: CartTypes[] } = await getData();
-    const uid = res.data.filter((uid) => uid.user_id===user_id)
-    
+    const uid = res.data.filter((uid) => uid.user_id === user_id)
+
     let totalQuantity = 0;
     let totalPrice = 0;
     return (
@@ -63,7 +64,7 @@ const Cart = async () => {
                             </TableRow>
                         </TableHeader>
                         {
-                          uid.length > 0 ? uid.map((item) => {
+                            uid.length > 0 ? uid.map((item) => {
                                 return (
                                     <>
                                         <TableBody className='bg-[#F4F4FC] '>
@@ -106,7 +107,7 @@ const Cart = async () => {
 
                     <div className='bg-[#F4F4FC] rounded-sm p-10 '>
                         {
-                          uid.map((item) => {
+                            uid.map((item) => {
                                 const strQuantity = item.quantity
                                 const strPrice = item.total
 
@@ -136,7 +137,7 @@ const Cart = async () => {
                             <span className='text-sm'>Shipping & taxes calculated at checkout</span>
                         </div>
                         {
-                                <StripeCheckout price={res?.data[0].price} />
+                            <StripeCheckout price={totalPrice} quantity={totalQuantity} name={'All Products'} />
                         }
 
                     </div>
