@@ -6,7 +6,8 @@
 -  Tailwind CSS for Stylings
 -  Shadcn/UI as Component Library
 -  Sanity.io as Headless CMS
--  Vercel Postgress for Add-to-Cart Storage
+-  Vercel Postgres (PostgreSQL) as Database for Add-to-Cart Storage
+-  Drizzle ORM
 -  Stripe for Payment
 -  React Hot Toast Library for Notifications
 -  Lucide React for Icons
