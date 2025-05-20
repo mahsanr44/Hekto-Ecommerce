@@ -68,10 +68,10 @@ const Footer = () => {
                         </ul>
                     </div>
                 </div>
-                <div className=" shadow-gray-300 bg-[#E7E4F8]  text-[#30207a] p-2  text-center font-bold">
+{/*                 <div className=" shadow-gray-300 bg-[#E7E4F8]  text-[#30207a] p-2  text-center font-bold">
                     Designed with ❤️ By
                     <Link href={"https://github.com/mahsanr44"} className="text-[#FB2E86]"> Ahsan</Link>
-                </div>
+                </div> */}
             </footer>
         </Wrapper>
     );
